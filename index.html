@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brinde, Chá de Revelação</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #ffccf9 40%, #b3d9ff 50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #333;
+            padding: 10px;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: 300px; /* Adicionando altura para centralizar a imagem */
+            margin: 0 auto;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%; /* Garante que a imagem ocupe toda a altura */
+            transition: opacity 0.5s ease-in-out;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #presente {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        #revelado {
+            opacity: 0;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Obrigado por participar desse momento especial, clique no presente para receber seu brinde!</h1>
+    <div class="image-container">
+        <img id="presente" class="image" src="img/Presente.png" alt="Presente">
+        <img id="revelado" class="image" src="img/brinde.jpeg" alt="Revelação do Presente">
+    </div>
+    <h3>Keivisson - Baby - Ana Luiza</h3>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const presente = document.getElementById('presente');
+            const revelado = document.getElementById('revelado');
+
+            presente.addEventListener('click', () => {
+                presente.style.opacity = '0'; // Oculta a imagem do presente
+                revelado.style.opacity = '1'; // Exibe a imagem revelada
+                revelado.style.zIndex = '1'; // Garante que a imagem revelada fique sobreposta
+            });
+        });
+    </script>
+
+</body>
+</html>
